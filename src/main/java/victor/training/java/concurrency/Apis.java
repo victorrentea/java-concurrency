@@ -17,18 +17,18 @@ public class Apis {
   private final RestTemplate rest;
 
   public Preferences fetchPreferences() {
-//    return restClient.get().uri("/preferences").retrieve().body(Preferences.class);
-    return rest.getForObject("/preferences", Preferences.class);
+    return restClient.get().uri("/preferences").retrieve().body(Preferences.class);
+//    return rest.getForObject("/preferences", Preferences.class);
   }
 
   public Beer fetchBeer(Preferences pref) {
-//    return restClient.get().uri("/beer/" + pref.favoriteBeerType()).retrieve().body(Beer.class);
-    return rest.getForObject("/beer/" + pref.favoriteBeerType(), Beer.class);
+    return restClient.get().uri("/beer/" + pref.favoriteBeerType()).retrieve().body(Beer.class);
+//    return rest.getForObject("/beer/" + pref.favoriteBeerType(), Beer.class);
   }
 
   public Vodka fetchVodka() {
-//    return restClient.get().uri("/vodka").retrieve().body(Vodka.class);
-    return rest.getForObject("/vodka", Vodka.class);
+    return restClient.get().uri("/vodka").retrieve().body(Vodka.class);
+//    return rest.getForObject("/vodka", Vodka.class);
   }
 
 }

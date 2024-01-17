@@ -26,11 +26,16 @@ public class SpringApp {
     SpringApplication.run(SpringApp.class, args);
   }
 
+//  @Bean
+//  public RestClient restClient(@Value("${remote.api.base.url}") String baseUrl) {
+//    return RestClient.builder()
+//        .baseUrl(baseUrl) // wiremock port (run StartWiremock.java)
+//        .build();
+//  }
+
   @Bean
-  public RestClient restClient(@Value("${remote.api.base.url}") String baseUrl) {
-    return RestClient.builder()
-        .baseUrl(baseUrl) // wiremock port (run StartWiremock.java)
-        .build();
+  public RestClient restClient(RestTemplate rest, @Value("${remote.api.base.url}") String baseUrl) {
+    return RestClient.builder(rest).baseUrl(baseUrl).build();
   }
 
   @Bean
